@@ -1,0 +1,634 @@
+:root {
+  --default-dark: #101010;
+  --default-text: #ffffff;
+  --transluent-text: rgba(255, 255, 255, 0.75);
+  --medium-transluent-text: rgba(255, 255, 255, 0.5);
+  --super-transluent-text: rgba(255, 255, 255, 0.25);
+  --profile-color: #3aa76d;
+  --quests-color: #ff375f;
+  --login-color: #276ef1;
+  --divider: #28282c;
+  --divaider-super-transluent: rgba(255, 255, 255, 0.12);
+  --gradient-bg: rgba(16, 16, 16, 0.5);
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  src: local("Roboto Bold"), url("./../fonts/robotobold.woff2") format("woff2"),
+    url("./../fonts/robotobold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  src: local("Roboto Medium"),
+    url("./../fonts/robotomedium.woff2") format("woff2"),
+    url("./../fonts/robotomedium.woff") format("woff");
+}
+/* ДОБАВИТЬ ВСЕ НОРМАЛЫ  */
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Roboto"), url("./../fonts/roboto.woff2") format("woff2"),
+    url("./../fonts/roboto.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 300;
+  src: local("Roboto Light"),
+    url("./../fonts/robotolight.woff2") format("woff2"),
+    url("./../fonts/robotolight.woff") format("woff");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Roboto", "Arial", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  color: var(--default-text);
+}
+
+/* код на случай, если svg с линиями и градиентом поломается  */
+
+.main-page,
+.quest-page {
+  background-image: repeating-linear-gradient(
+      to right,
+      var(--default-dark) 0%,
+      var(--gradient-bg) 25%,
+      var(--gradient-bg) 70%,
+      var(--default-dark) 100%
+    ),
+    repeating-linear-gradient(
+      to right,
+      var(--quests-color) 0px,
+      var(--quests-color) 2px,
+      var(--default-dark) 2px,
+      var(--default-dark) 60px
+    );
+  margin: 0;
+  padding: 0;
+}
+
+.login-page {
+  background-image: repeating-linear-gradient(
+      to right,
+      var(--default-dark) 0%,
+      var(--gradient-bg) 25%,
+      var(--gradient-bg) 70%,
+      var(--default-dark) 100%
+    ),
+    repeating-linear-gradient(
+      to right,
+      var(--login-color) 0px,
+      var(--login-color) 2px,
+      var(--default-dark) 2px,
+      var(--default-dark) 60px
+    );
+}
+
+.user-page {
+  background-image: repeating-linear-gradient(
+      to right,
+      var(--default-dark) 0%,
+      var(--gradient-bg) 25%,
+      var(--gradient-bg) 70%,
+      var(--default-dark) 100%
+    ),
+    repeating-linear-gradient(
+      to right,
+      var(--profile-color) 0px,
+      var(--profile-color) 2px,
+      var(--default-dark) 2px,
+      var(--default-dark) 60px
+    );
+}
+
+.wrapper {
+  background-color: var(--default-dark);
+  width: 800px;
+  margin: 0 auto;
+  min-height: 100%;
+  padding-left: 80px;
+  padding-right: 80px;
+  flex-shrink: 0;
+  flex-grow: 2;
+}
+
+.main-page .wrapper {
+  padding-top: 15px;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--divider);
+}
+
+main {
+  min-height: 100%;
+  position: relative;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+/* LOGIN  */
+
+.login-page .wrapper {
+  padding-top: 35px;
+}
+
+.login-title {
+  position: relative;
+}
+
+.login-title .divider {
+  margin-top: 32px;
+}
+
+.login-links {
+  margin: 0;
+  padding: 0;
+  padding-top: 32px;
+}
+
+.login-links a {
+  font-size: 40px;
+  line-height: 40px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--login-color);
+}
+
+.login-links li {
+  list-style: none;
+  margin-bottom: 23px;
+}
+
+.login-title h1 {
+  font-size: 24px;
+  line-height: 28px;
+  margin: 0;
+  margin-bottom: 4px;
+}
+
+.login-title span {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.panel-wrapper {
+  width: 640px;
+  position: fixed;
+  display: flex;
+  bottom: 8px;
+}
+
+.panel {
+  width: 100%;
+  border: 1px solid var(--quests-color);
+  border-radius: 16px;
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+  height: 56px;
+  align-items: center;
+  background-color: var(--default-dark);
+  transition: background-color 0.3s
+}
+
+.panel-item:last-child {
+  margin-right: 0;
+}
+
+.user-page .panel {
+  border-color: var(--profile-color);
+}
+
+.panel-link {
+  color: var(--medium-transluent-text);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  padding: 8px 16px;
+  transition: background-color 0.3s;
+}
+
+.icon-fill {
+  fill: var(--default-text);
+  opacity: 0.5;
+}
+
+.current-quests .icon-fill {
+  fill: var(--quests-color);
+}
+
+.current-quests .page-name {
+  color: var(--quests-color);
+}
+
+.current-profile .icon-fill {
+  fill: var(--profile-color);
+}
+.current-profile .page-name {
+  color: var(--profile-color);
+}
+
+.panel-link:hover {
+  background-color: var(--super-transluent-text);
+}
+
+.panel-link:hover .icon-fill {
+  fill: var(--default-text);
+}
+
+.panel-link:hover .page-name {
+  color: var(--default-text);
+}
+
+.page-name {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.quest-name {
+  font-size: 16px;
+  line-height: 24px;
+  margin: 0;
+  margin-bottom: 4px;
+  color: var(--default-text);
+  padding-top: 6px;
+}
+
+.preview-quest {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  position: relative;
+  margin-bottom: 24px;
+  text-decoration: none;
+  padding-top: 25px;
+}
+
+.preview-quest .info-item {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--super-transluent-text);
+  font-weight: 400;
+  margin-left: 4px;
+  margin-bottom: 12px;
+}
+
+.episodes-info {
+  display: flex;
+  margin-top: 8px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.episodes-info .info-item {
+  margin-left: 8px;
+}
+
+.episodes-info-wrapper {
+  margin-top: 24px;
+}
+
+.quest-page .episodes-info-wrapper {
+  margin-top: 43px;
+}
+
+.description {
+  color: var(--transluent-text);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  overflow-y: hidden;
+}
+
+.quests-page .description,
+.user-page .description {
+  max-height: 40px;
+}
+.quest-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  margin-right: 16px;
+}
+
+/* QUEST PAGE  */
+
+.author-name {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--super-transluent-text);
+}
+
+.quest-text {
+  padding-left: 20px;
+}
+
+.quest-title {
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: 700;
+  margin: 0;
+  margin-top: 6px;
+}
+
+.button-wrapper {
+  width: 640px;
+  position: fixed;
+  z-index: 10;
+  bottom: 7px;
+  padding: 0 20px;
+}
+
+.button {
+  background-color: var(--login-color);
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 48px;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 700;
+  color: var(--default-text);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: 0.3s;
+  width: 100%;
+}
+
+.button:hover {
+  opacity: 0.7;
+}
+
+.quest-image {
+  /* width: 640px;
+  height: 359px; */
+  margin-bottom: 10px;
+}
+
+.quest-image-wrapper {
+  position: relative;
+}
+
+.quests-list {
+  padding: 0;
+  list-style: none;
+  padding-bottom: 100px;
+  margin: 0;
+}
+
+.quest-image-wrapper::before {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+    0deg,
+    #101010 0%,
+    rgba(0, 0, 0, 0.0001) 100%
+  );
+}
+
+.quest-page .wrapper {
+  position: relative;
+  padding-bottom: 100px;
+  padding-top: 0;
+}
+
+.cross {
+  width: 32px;
+  height: 32px;
+  stroke: var(--default-text);
+}
+
+.cross:hover {
+  stroke: var(--super-transluent-text);
+}
+
+.quest-page .cross {
+  position: absolute;
+  top: 38px;
+  left: -49px;
+}
+
+.quest-page .description {
+  margin-top: 14px;
+}
+
+/* USER PAGE  */
+
+.user-profile .divider {
+  background-color: var(--default-dark);
+}
+
+.user-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.user-name {
+  font-size: 16px;
+  line-height: 24px;
+  margin: 0;
+  font-weight: 700;
+}
+
+.user-plan {
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--transluent-text);
+}
+
+.cash {
+  font-weight: 300;
+  margin: 0;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--super-transluent-text);
+  padding-top: 20px;
+}
+
+.cash-info {
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 28px;
+  display: flex;
+  margin-top: 4px;
+}
+
+.dot {
+  margin: 0 6px;
+  opacity: 0.25;
+}
+
+.name-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  padding-top: 7px;
+}
+
+.cash-wrapper {
+  margin-top: 29px;
+  position: relative;
+}
+
+.preview-text .divider {
+  margin-top: 21px;
+}
+
+.user-profile {
+  background: linear-gradient(
+    180deg,
+    rgba(16, 16, 16, 0) 0%,
+    rgba(58, 167, 109, 0.25) 100%
+  );
+  border-radius: 0px 0px 16px 16px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
+
+.user-info {
+  display: flex;
+}
+
+.quests-list-title {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  padding-top: 31px;
+  padding-left: 20px;
+  margin: 0;
+}
+
+.user-page .quests-list {
+  padding-left: 20px;
+}
+
+.user-page .preview-quest {
+  padding-top: 20px;
+}
+
+@media (max-width: 640px) {
+  .button-wrapper {
+    width: 100%;
+    bottom: 22px;
+  }
+
+  .wrapper {
+    width: auto;
+    padding: 0;
+  }
+
+  .panel {
+    bottom: 20px;
+    width: 90%;
+    margin-left: 20px;
+  }
+
+  .panel-item {
+    margin: 0;
+  }
+
+  .preview-quest {
+    /* padding-top:20px; */
+    margin-bottom: 5px;
+  }
+
+  .main-page .quests-list {
+    padding: 6px 20px;
+    width: 100%;
+  }
+
+  .user-quests {
+    padding: 0 20px;
+  }
+
+  .quests-list li:last-child {
+    padding-bottom: 100px;
+  }
+
+  .preview-quest .info-item {
+    margin-bottom: 10px;
+  }
+
+  .preview-quest .quest-name {
+    margin-bottom: 4px;
+  }
+
+  .quest-image {
+    width: 100%;
+    height: 202px;
+  }
+
+  .quest-text {
+    padding-right: 20px;
+  }
+
+  .login-page .wrapper {
+    padding: 36px 20px;
+  }
+
+  .user-page .quests-list {
+    padding: 0;
+  }
+
+  .user-page .quests-list-title {
+    padding-left: 0;
+  }
+
+  .quest-page .episodes-info-wrapper {
+    margin: 0;
+    margin-top: 22px;
+  }
+}
