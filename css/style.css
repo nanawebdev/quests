@@ -6,7 +6,7 @@
   --super-transluent-text: rgba(255, 255, 255, 0.25);
   --profile-color: rgba(58, 167, 109, 1);
   --profile-hover: rgba(58, 167, 109, 0.08);
-  --quests-color: rgba(255, 55, 95, 1);
+  --quests-color: #FF375F;
   --quests-hover: rgba(255, 55, 95, 0.08);
   --login-color: #276ef1;
   --divider: #28282c;
@@ -253,7 +253,7 @@ main {
 
 .icon-fill {
   fill: var(--default-text);
-  opacity: 0.5;
+  fill-opacity: 1;
 }
 
 .current-quests .icon-fill {
@@ -342,7 +342,8 @@ main {
 }
 
 .quests-page .description,
-.user-page .description {
+.user-page .description,
+.main-page {
   max-height: 40px;
 }
 .quest-avatar {
@@ -574,11 +575,6 @@ main {
   .wrapper {
     width: auto;
     padding: 0;
-  }
-
-  .preview-quest {
-    /* padding-top:20px; */
-    margin-bottom: 5px;
   }
 
   .main-page .quests-list {
