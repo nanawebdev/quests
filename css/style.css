@@ -4,8 +4,10 @@
   --transluent-text: rgba(255, 255, 255, 0.75);
   --medium-transluent-text: rgba(255, 255, 255, 0.5);
   --super-transluent-text: rgba(255, 255, 255, 0.25);
-  --profile-color: #3aa76d;
-  --quests-color: #ff375f;
+  --profile-color: rgba(58, 167, 109, 1);
+  --profile-hover: rgba(58, 167, 109, 0.08);
+  --quests-color: rgba(255, 55, 95, 1);
+  --quests-hover: rgba(255, 55, 95, 0.08);
   --login-color: #276ef1;
   --divider: #28282c;
   --divaider-super-transluent: rgba(255, 255, 255, 0.12);
@@ -214,7 +216,7 @@ main {
   width: 640px;
   position: fixed;
   display: flex;
-  bottom: 8px;
+  bottom: 24px;
 }
 
 .panel {
@@ -265,13 +267,6 @@ main {
 .current-profile .icon-fill {
   fill: var(--profile-color);
 }
-.current-profile .page-name {
-  color: var(--profile-color);
-}
-
-.panel-link:hover {
-  background-color: var(--super-transluent-text);
-}
 
 .panel-link:hover .icon-fill {
   fill: var(--default-text);
@@ -279,6 +274,10 @@ main {
 
 .panel-link:hover .page-name {
   color: var(--default-text);
+}
+
+.current-profile .page-name {
+  color: var(--profile-color);
 }
 
 .page-name {
@@ -300,9 +299,9 @@ main {
   display: grid;
   grid-template-columns: min-content 1fr;
   position: relative;
-  margin-bottom: 24px;
+  /* margin-bottom: 24px; */
   text-decoration: none;
-  padding-top: 25px;
+  padding-top: 24px;
 }
 
 .preview-quest .info-item {
@@ -378,7 +377,7 @@ main {
   width: 640px;
   position: fixed;
   z-index: 10;
-  bottom: 7px;
+  bottom: 24px;
   padding: 0 20px;
 }
 
@@ -556,28 +555,25 @@ main {
 }
 
 .user-page .preview-quest {
-  padding-top: 20px;
+  padding-top: 24px;
 }
 
 @media (max-width: 640px) {
   .button-wrapper {
     width: 100%;
     bottom: 22px;
+    padding: 0 21px;
+  }
+
+  .panel-wrapper {
+    width: 100%;
+    bottom: 22px;
+    padding: 0 21px;
   }
 
   .wrapper {
     width: auto;
     padding: 0;
-  }
-
-  .panel {
-    bottom: 20px;
-    width: 90%;
-    margin-left: 20px;
-  }
-
-  .panel-item {
-    margin: 0;
   }
 
   .preview-quest {
