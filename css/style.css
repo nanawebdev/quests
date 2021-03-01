@@ -724,16 +724,15 @@ main {
   }
 
   .main-page .quests-list {
-    padding: 0 20px;
+   padding: 0px 0px 100px 20px;
     width: 100%;
+  }
+  .main-page .short-description {
+    padding-right: 44px;
   }
 
   .user-quests {
     padding: 0 20px;
-  }
-
-  .quests-list li:last-child {
-    padding-bottom: 100px;
   }
 
   .preview-quest .info-item {
@@ -801,5 +800,9 @@ main {
 
   .list-wrapper {
     margin-bottom: 24px;
+  }
+
+  .news-card-page .news-list {
+    padding: 16px 0 0 0px;
   }
 }
