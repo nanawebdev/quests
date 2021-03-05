@@ -1,9 +1,9 @@
 :root {
   --default-dark: #101010;
   --default-text: #ffffff;
-  --transluent-text: rgba(255, 255, 255, 0.75);
-  --medium-transluent-text: rgba(255, 255, 255, 0.5);
-  --super-transluent-text: rgba(255, 255, 255, 0.25);
+  --translucent-text: rgba(255, 255, 255, 0.75);
+  --medium-translucent-text: rgba(255, 255, 255, 0.5);
+  --super-translucent-text: rgba(255, 255, 255, 0.25);
   --profile-color: rgba(58, 167, 109, 1);
   --profile-hover: rgba(58, 167, 109, 0.08);
   --quests-color: #ff375f;
@@ -11,7 +11,7 @@
   --login-color: #276ef1;
   --news-color: #00d0ff;
   --divider: #28282c;
-  --divaider-super-transluent: rgba(255, 255, 255, 0.12);
+  --divider-super-translucent: rgba(255, 255, 255, 0.12);
   --gradient-bg: rgba(16, 16, 16, 0.5);
 }
 
@@ -116,7 +116,8 @@ img {
     );
 }
 
-.user-page {
+.user-page,
+.registration-page {
   background-image: repeating-linear-gradient(
       to right,
       var(--default-dark) 0%,
@@ -269,7 +270,7 @@ main {
 }
 
 .panel-link {
-  color: var(--medium-transluent-text);
+  color: var(--medium-translucent-text);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -339,7 +340,7 @@ main {
 .preview-quest .info-item {
   font-size: 12px;
   line-height: 16px;
-  color: var(--super-transluent-text);
+  color: var(--super-translucent-text);
   font-weight: 400;
   margin-left: 4px;
   margin-bottom: 12px;
@@ -366,7 +367,7 @@ main {
 }
 
 .short-description {
-  color: var(--transluent-text);
+  color: var(--translucent-text);
   font-size: 14px;
   line-height: 20px;
   font-weight: 400;
@@ -391,7 +392,7 @@ main {
   font-weight: 500;
   font-size: 14px;
   line-height: 20px;
-  color: var(--super-transluent-text);
+  color: var(--super-translucent-text);
 }
 
 .text {
@@ -403,6 +404,9 @@ main {
   line-height: 28px;
   font-weight: 700;
   margin: 0;
+}
+
+.quest-text .title {
   margin-top: 6px;
 }
 
@@ -416,6 +420,7 @@ main {
 
 .button {
   background-color: var(--login-color);
+  color: var(--default-text);
   border-radius: 8px;
   display: flex;
   justify-content: center;
@@ -424,12 +429,21 @@ main {
   font-size: 16px;
   line-height: 20px;
   font-weight: 700;
-  color: var(--default-text);
   border: none;
   outline: none;
   cursor: pointer;
   transition: 0.3s;
   width: 100%;
+}
+
+.button[disabled] {
+  background-color: var(--divider-super-translucent);
+  color: var(--medium-translucent-text);
+  cursor: default;
+}
+
+.button[disabled]:hover {
+  opacity: 1;
 }
 
 .button:hover {
@@ -483,7 +497,7 @@ main {
 }
 
 .cross:hover {
-  stroke: var(--super-transluent-text);
+  stroke: var(--super-translucent-text);
 }
 
 .description {
@@ -513,7 +527,7 @@ main {
   font-weight: 300;
   font-size: 12px;
   line-height: 16px;
-  color: var(--transluent-text);
+  color: var(--translucent-text);
 }
 
 .cash {
@@ -521,7 +535,7 @@ main {
   margin: 0;
   font-size: 12px;
   line-height: 16px;
-  color: var(--super-transluent-text);
+  color: var(--super-translucent-text);
   padding-top: 20px;
 }
 
@@ -622,7 +636,7 @@ main {
 }
 
 .news-description {
-  color: var(--transluent-text);
+  color: var(--translucent-text);
   font-size: 14px;
   line-height: 20px;
   margin: 0;
@@ -659,7 +673,7 @@ main {
 }
 
 .news-card-page .description {
-  font-family: 'PT Serif', serif;
+  font-family: "PT Serif", serif;
 }
 
 .list-title {
@@ -699,10 +713,133 @@ main {
 .list-wrapper .news-list {
   padding-top: 17px;
 }
+
+/* registration  */
+
+.registration-user-data {
+  padding-top: 35px;
+}
+
+.registration-page .wrapper {
+  height: 100%;
+}
+
+.main-registration {
+  display: grid;
+  grid-template-rows: 1fr min-content;
+  min-height: 100%;
+  padding-bottom: 24px;
+}
+
+.registration-user-name {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  margin-top: 40px;
+}
+
+.registration-name-wrapper {
+  font-weight: 400;
+  position: relative;
+  margin-left: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.registration-avatar {
+  width: 100px;
+  height: 100px;
+  border: 1px solid var(--profile-color);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.registration-user-data .title {
+  margin-bottom: 4px;
+}
+
+.registration-user-data .advice {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.registration-name-wrapper .title {
+  color: var(--medium-translucent-text);
+  font-size: 12px;
+  line-height: 16px;
+  margin-top: 0;
+}
+
+.registration-name-wrapper .name {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.terms-of-use-text {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--translucent-text);
+  padding:0;
+  margin: 4px;
+  position: relative;
+  padding-left: 45px;
+}
+
+.terms-of-use-text a {
+  color: var(--translucent-text);
+}
+
+.registration-name-wrapper:after {
+  position: absolute;
+  content: "";
+  bottom: 20px;
+  height: 2px;
+  width: 100%;
+  background-color: var(--divider);
+}
+
+.terms-of-use-wrapper {
+  display: grid;
+  position: relative;
+  grid-template-rows: min-content min-content;
+  row-gap: 20px;
+}
+
+.reg-checkbox {
+  opacity: 0;
+  width: 24px;
+  height: 24px;
+  z-index: 30;
+  position: absolute;
+  cursor: pointer;
+  left: 0;
+  top: 0;
+}
+
+.terms-of-use-text::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: var(--divider);
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+}
+
+.reg-checkbox:checked + .terms-of-use-text::before {
+  background-color: none;
+  background-image: url(./../img/agree-icon.svg);
+  background-size: contain;
+}
+
 /* Мобильный вид  */
 
 @media (max-width: 640px) {
-
   .wrapper {
     width: auto;
     padding: 0;
@@ -728,7 +865,7 @@ main {
   }
 
   .main-page .quests-list {
-   padding: 0px 0px 100px 20px;
+    padding: 0px 0px 100px 20px;
     width: 100%;
   }
 
@@ -785,7 +922,7 @@ main {
     margin-top: 22px;
   }
 
-    /* news  */
+  /* news  */
 
   .news-list {
     padding: 0px 20px 100px 20px;
@@ -809,10 +946,10 @@ main {
 
   .news-card-page .news-text,
   .news-card-page .lists {
-   padding: 0 20px;
+    padding: 0 20px;
   }
 
-  .news-card-page .quests-list li:last-child{
+  .news-card-page .quests-list li:last-child {
     padding: 0;
   }
 
@@ -822,5 +959,29 @@ main {
 
   .news-card-page .news-list {
     padding: 16px 0 0 0px;
+  }
+
+  /* registration  */
+
+  .main-registration {
+    padding: 0px 20px 24px 20px;
+  }
+
+  .registration-avatar {
+    width: 80px;
+    height: 80px;
+  }
+
+  .user-avatar {
+    width: 48px;
+    height: 48px;
+  }
+
+  .registration-name-wrapper:after {
+    bottom: 10px;
+  }
+
+  .registration-user-name {
+    margin-top: 36px;
   }
 }
