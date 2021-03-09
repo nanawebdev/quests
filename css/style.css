@@ -994,7 +994,7 @@ main {
   /* user page  */
 
   .user-quests {
-    padding: 0 20px;
+    padding: 0 20px 100px 20px;
   }
 
   .preview-quest .info-item {
